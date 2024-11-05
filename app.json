@@ -1,0 +1,40 @@
+{
+  "name": "mailify",
+  "description": "A Rust application that transform mjml template, interpolate variables and send the email",
+  "repository": "https://github.com/trinhminhtriet/mailify",
+  "keywords": ["rust", "mjml", "mrml", "email", "template"],
+  "website": "https://trinhminhtriet.com",
+  "stack": "container",
+  "env": {
+    "LOG": {
+      "description": "Log level",
+      "value": "info"
+    },
+    "SMTP__HOSTNAME": {
+      "description": "Hostname of the SMTP server",
+      "value": "localhost"
+    },
+    "SMTP__PORT": {
+      "description": "Port of the SMTP server",
+      "value": "25"
+    },
+    "SMTP__USERNAME": {
+      "description": "Username of the SMTP server",
+      "required": false,
+      "value": ""
+    },
+    "SMTP__PASSWORD": {
+      "description": "Password of the SMTP server",
+      "required": false,
+      "value": ""
+    },
+    "TEMPLATE__TYPE": {
+      "description": "Type of provider for the template",
+      "value": "local"
+    },
+    "TEMPLATE__PATH": {
+      "description": "Path to the templates",
+      "value": "/templates"
+    }
+  }
+}

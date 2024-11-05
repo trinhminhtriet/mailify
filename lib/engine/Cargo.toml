@@ -1,0 +1,31 @@
+[package]
+name = "mailify-engine"
+description = "The core engine of mailify with template loading, interpolation and rendering."
+authors = ["Triet Trinh <contact@trinhminhtriet.com>"]
+license = "AGPL-3.0"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+mailify-prelude = { path = "../prelude", version = "0.1.0" }
+
+bytes = { version = "1.6.0" }
+handlebars = { version = "5.1.2" }
+lettre = { default-features = false, features = [
+  "builder",
+], version = "0.11.4" }
+metrics = { version = "0.22.3" }
+mrml = { version = "3.1.5", features = ["async", "local-loader"] }
+reqwest = { version = "0.12.4", default-features = false, features = [
+  "json",
+  "rustls-tls",
+] }
+serde = { version = "1.0.200", features = ["derive"] }
+serde_json = { version = "1.0.116" }
+thiserror = { version = "1.0.59" }
+tracing = { version = "0.1.40" }
+url = { version = "2.5.0" }
+
+[dev-dependencies]
+tokio = { version = "1.37.0", features = ["macros"] }
+wiremock = { version = "0.6.0" }

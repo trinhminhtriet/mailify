@@ -1,0 +1,61 @@
+[package]
+name = "mailify"
+version = "0.1.0"
+description = "Mailify: Self-hosted, open-source transactional email service for fast, reliable, and secure on-premise email delivery."
+authors = ["Triet Trinh <contact@trinhminhtriet.com>"]
+edition = "2021"
+license = "MIT"
+readme = "README.md"
+keywords = ["email", "transactional", "self-hosted", "open-source", "secure", "reliable"]
+categories = ["email", "communication", "self-hosted"]
+
+[workspace]
+members = ["./lib/engine", "./lib/prelude"]
+resolver = "2"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+mailify-engine = { version = "*", path = "./lib/engine" }
+
+axum = { version = "0.7.5", features = ["multipart"] }
+clap = { version = "4.5.4", features = ["derive", "env"] }
+config = { version = "0.14.0", default-features = false }
+lettre = { default-features = false, features = [
+  "pool",
+  "rustls-tls",
+  "serde",
+  "smtp-transport",
+  "tokio1-rustls-tls",
+], version = "0.11.4" }
+metrics = { version = "0.22.3" }
+metrics-exporter-prometheus = { version = "0.14.0", default-features = false, features = [
+  "http-listener",
+] }
+serde = { version = "1.0.200", features = ["derive"] }
+serde_json = { version = "1.0.116" }
+thiserror = { version = "1.0.59" }
+tokio = { version = "1.37.0", features = ["full"] }
+tower-http = { version = "0.5.2", default-features = false, features = [
+  "trace",
+] }
+tracing = { version = "0.1.40" }
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+utoipa = { version = "4.2.0", features = ["axum_extras"] }
+utoipa-swagger-ui = { version = "6.0.0", features = ["axum"] }
+
+[dev-dependencies]
+http-body-util = "0.1.1"
+multipart = "0.18.0"
+reqwest = { version = "0.12.4", default-features = false, features = [
+  "json",
+  "rustls-tls",
+] }
+testcontainers = { version = "0.15.0" }
+tower = { version = "0.4.13" }
+uuid = { version = "1.8.0", features = ["v4"] }
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"

@@ -1,0 +1,20 @@
+version: "2"
+
+services:
+  smtp:
+    image: rnwood/smtp4dev
+    ports:
+      - "1025:25"
+      - "1080:80"
+
+  smtp-tls:
+    image: rnwood/smtp4dev
+    environment:
+      - ServerOptions__TlsMode=StartTls
+      - ServerOptions__TlsCertificate=/mnt/asset/selfsigned.crt
+      - ServerOptions__TlsCertificatePrivateKey=/mnt/asset/selfsigned.key
+    ports:
+      - "1125:25"
+      - "1180:80"
+    volumes:
+      - ./asset:/mnt/asset:ro
