@@ -14,7 +14,7 @@ handlebars = { version = "5.1.2" }
 lettre = { default-features = false, features = [
   "builder",
 ], version = "0.11.4" }
-metrics = { version = "0.22.3" }
+metrics = { version = "0.24.0" }
 mrml = { version = "3.1.5", features = ["async", "local-loader"] }
 reqwest = { version = "0.12.4", default-features = false, features = [
   "json",
