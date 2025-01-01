@@ -24,7 +24,7 @@ serde = { version = "1.0.200", features = ["derive"] }
 serde_json = { version = "1.0.116" }
 thiserror = { version = "1.0.68" }
 tracing = { version = "0.1.40" }
-url = { version = "2.5.0" }
+url = { version = "2.5.4" }
 
 [dev-dependencies]
 tokio = { version = "1.37.0", features = ["macros"] }
