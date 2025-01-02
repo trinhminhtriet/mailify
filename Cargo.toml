@@ -8,6 +8,9 @@ license = "MIT"
 readme = "README.md"
 keywords = ["email", "transactional", "self-hosted", "open-source", "secure", "reliable"]
 categories = ["email", "communication", "self-hosted"]
+repository = "https://github.com/trinhminhtriet/spiko"
+homepage = "https://trinhminhtriet.com"
+documentation = "https://trinhminhtriet.com"
 
 [workspace]
 members = ["./lib/engine", "./lib/prelude"]
